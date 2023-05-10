@@ -10,21 +10,26 @@
 <body>
 	<div class="calculator">
 		<section class="calc-screen">
+			<div id="previous-op-screen"></div>
 			<div id="current-op-screen">0</div>
 		</section>
 		<section class="calc-body">
 			<!-- Operator Buttons -->
 			<button operator-button>+</button>
 			<button operator-button>-</button>
-			<button operator-button>X</button>
+			<button operator-button>x</button>
 			<button operator-button>&divide;</button> <br>
 
 			<button data-number>1</button>
 			<button data-number>2</button>
-			<button data-number>3</button> <br>
+			<button data-number>3</button> 
+			<button id="equal-button" >=</button> <br>
+
 			<button data-number>4</button>
 			<button data-number>5</button>
-			<button data-number>6</button> <br>
+			<button data-number>6</button> 
+			<button class="point-button">.</button><br>
+
 			<button data-number>7</button>
 			<button data-number>8</button>
 			<button data-number>9</button>
