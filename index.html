@@ -9,34 +9,34 @@
 </head>
 <body>
 	<div class="calculator">
-		<section class="calc-screen">
-			<div id="previous-op-screen"></div>
-			<div id="current-op-screen">0</div>
-		</section>
-		<section class="calc-body">
-			<!-- Operator Buttons -->
-			<button operator-button>+</button>
-			<button operator-button>-</button>
-			<button operator-button>x</button>
-			<button operator-button>&divide;</button> <br>
-
-			<button data-number>1</button>
-			<button data-number>2</button>
-			<button data-number>3</button> 
-			<button id="equal-button" >=</button> <br>
-
-			<button data-number>4</button>
-			<button data-number>5</button>
-			<button data-number>6</button> 
-			<button class="point-button">.</button><br>
-
+		<section class="calc-container">
+			<section class="calc-screen">
+				<div id="previous-op-screen"></div>
+				<div id="current-op-screen">0</div>
+			</section>
+				<!-- Row 1 -->
+			<button id="reset-button">AC</button>
+			<button id="delete-button">DEL</button>
+			<button operator-button>&divide;</button>
+			<!-- Row 2 -->
 			<button data-number>7</button>
 			<button data-number>8</button>
 			<button data-number>9</button>
-			<button data-number>0</button> <br>
-
-			<button id="delete-button">Delete</button>
-			<button id="reset-button">Reset</button>
+			<button operator-button>x</button>
+			<!-- Row 3 -->
+			<button data-number>4</button>
+			<button data-number>5</button>
+			<button data-number>6</button> 
+			<button operator-button>-</button>
+			<!-- Row 4 -->
+			<button data-number>1</button>
+			<button data-number>2</button>
+			<button data-number>3</button> 
+			<button operator-button>+</button>
+			<!-- Row 5 -->
+			<button id="point-button">.</button>
+			<button data-number>0</button>
+			<button id="equal-button" >=</button>
 		</section>
 	</div>
 	

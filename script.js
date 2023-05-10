@@ -1,6 +1,6 @@
 let firstOperand = '';
 let secondOperand = '';
-let result;
+let result = false;
 
 let currentOperator = null;
 
@@ -29,11 +29,14 @@ resetButton.addEventListener('click', resetScreen);
 equalButton.addEventListener('click', evaluate);
 
 function setOperator(operator) {
+	if (currentOperation.textContent === "INVALID") {
+		resetScreen();
+	}
+	if (currentOperator != null) evaluate()
 	firstOperand = currentOperation.textContent;
 	currentOperator = operator;
 	previousOperation.textContent = `${firstOperand} ${currentOperator}`
 	currentOperation.textContent = ' ';
-	calculate(operator)
 }
 
 function deleteNumber() {
@@ -43,22 +46,38 @@ function deleteNumber() {
 function resetScreen() {
 	firstOperand = '';
 	secondOperand = '';
-	currentOperation.textContent = '';
+	if (currentOperation.textContent === "0") {
+		currentOperation.textContent = '';
+	} else currentOperation.textContent = "0"
 	previousOperation.textContent = '';
+	result = '';
 	currentOperator = null;
 }
 
 function appendNumber(number) {
+	if (currentOperation.textContent === "0" || currentOperation.textContent === "INVALID") {
+		resetScreen();
+	}
+	if (result != false) {
+		previousOperation.textContent += ` = ${currentOperation.textContent}`
+		currentOperation.textContent = ''
+		result = false;
+	}
 	currentOperation.textContent += number;
 }
 
 function evaluate() {
 	secondOperand = currentOperation.textContent;
+	if (currentOperator === null) {
+		alert("No operator currently set")
+		return
+	}
 	if (firstOperand != '' && secondOperand != '' && currentOperation != '') {
 		previousOperation.textContent = `${firstOperand} ${currentOperator} ${secondOperand}`;
 		currentOperation.textContent = calculate(
 			currentOperator, firstOperand, secondOperand
 		)
+		result = true
 		currentOperator = null
 	}
 }
@@ -90,7 +109,7 @@ function calculate(operator, a, b) {
 		case 'x':
 			return multiply(a, b);
 		case '÷':
-			if (b === 0) return "Invalid"
+			if (b === 0) return "INVALID"
 			else return divide(a, b);
 	}
 }

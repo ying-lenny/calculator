@@ -1,12 +1,53 @@
+@font-face {
+	font-family: Calculator;
+	src: url(./font/Calculator.ttf);
+}
+
 .calculator {
 	display: flex;
-	flex-direction: column;
-	border: 1px solid black;
 	margin: auto;
-	max-width: 50%;
 	justify-content: center;
+	font-family: 'Calculator';
+}
+
+.calc-container {
+	border: 1em solid rgb(53, 53, 53);
+	display: grid;
+	grid-template-columns: repeat(4, 100px);
+	grid-template-rows: minmax(100px, auto) repeat(5, 80px);
+	background-color: black;
+	gap: 2px;
+}
+
+.calc-screen {
+	grid-column: 1 / -1;
+	display: flex;
+	background-color: rgb(202, 201, 201);
+	align-items: flex-end;
+	flex-direction: column;
+	margin: 5px;
+	padding: 5px;
+}
+
+#previous-op-screen, #current-op-screen {
+	min-height: 1.5em;
+}
+
+#previous-op-screen {
+	font-size: 1.75em;
+}
+
+#current-op-screen {
+	font-size: 2.5em;
+}
+
+#reset-button, #equal-button {
+	grid-column: span 2;
 }
 
 button {
-	padding: 1em;
+	font-size: 2em;
+	border: none;
+	cursor: pointer;
+	background-color: rgb(202, 201, 201);
 }
