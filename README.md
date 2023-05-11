@@ -14,4 +14,5 @@ Link to active site: When that exists
 | Clear function | Yes |
 | Decimal Point function | Yes  |
 | Keyboard functionality | No |
+| Long Decimal rounding  | Yes |
 | | |

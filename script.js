@@ -1,5 +1,6 @@
 let firstOperand = '';
 let secondOperand = '';
+let preRounded = '';
 let result = false;
 
 let currentOperator = null;
@@ -74,17 +75,24 @@ function appendPoint() {
 	currentOperation.textContent += '.';
 }
 
+function roundDown(answer) {
+	return (Math.round(answer * 100) / 100);
+}
+
 function evaluate() {
 	secondOperand = currentOperation.textContent;
 	if (currentOperator === null) {
 		alert("No operator currently set")
-		return
+		return;
 	}
-	if (firstOperand != '' && secondOperand != '' && currentOperation != '') {
+	if (firstOperand != '' && secondOperand != '' && currentOperation.textContent != '') {
 		previousOperation.textContent = `${firstOperand} ${currentOperator} ${secondOperand}`;
-		currentOperation.textContent = calculate(
-			currentOperator, firstOperand, secondOperand
-		)
+		preRounded = calculate(currentOperator, firstOperand, secondOperand)
+		if (preRounded != "INVALID") {
+			currentOperation.textContent = roundDown(preRounded)
+		} else {
+			currentOperation.textContent = preRounded;
+		}
 		result = true
 		currentOperator = null
 	}
