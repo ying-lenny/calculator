@@ -8,6 +8,7 @@ const currentOperation = document.getElementById('current-op-screen');
 const previousOperation = document.getElementById('previous-op-screen')
 const operatorButtons = document.querySelectorAll('[operator-button]');
 const numberButtons = document.querySelectorAll('[data-number]');
+const decimalPoint = document.getElementById('point-button');
 const deleteButton = document.getElementById('delete-button');
 const resetButton = document.getElementById('reset-button')
 const equalButton = document.getElementById('equal-button');
@@ -27,6 +28,8 @@ deleteButton.addEventListener('click', deleteNumber);
 resetButton.addEventListener('click', resetScreen);
 // Triggers Evaluate function
 equalButton.addEventListener('click', evaluate);
+// Triggers decimal point
+decimalPoint.addEventListener('click', appendPoint);
 
 function setOperator(operator) {
 	if (currentOperation.textContent === "INVALID") {
@@ -64,6 +67,11 @@ function appendNumber(number) {
 		result = false;
 	}
 	currentOperation.textContent += number;
+}
+
+function appendPoint() {
+	if (currentOperation.textContent.includes('.')) return
+	currentOperation.textContent += '.';
 }
 
 function evaluate() {
