@@ -8,6 +8,7 @@
 	margin: auto;
 	justify-content: center;
 	font-family: 'Calculator';
+	width: 100%;
 }
 
 .calc-container {
@@ -17,6 +18,13 @@
 	grid-template-rows: minmax(100px, auto) repeat(5, 80px);
 	background-color: black;
 	gap: 2px;
+}
+
+@media (max-width:500px){
+	.calc-container {
+		grid-template-columns: repeat(4, 75px);
+	}
+
 }
 
 .calc-screen {
