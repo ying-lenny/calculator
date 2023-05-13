@@ -1,6 +1,6 @@
 # calculator
  
-Link to active site: When that exists
+Link to active site: https://ying-lenny.github.io/calculator/
 
 | Functionality: | Status |
 | :---: | :---: |
